@@ -1,6 +1,7 @@
 from . import create_engine
 
-
+# create mysql or postgresql and change line bellow
+# if you use postgresql change mysql engine
 DB_HOST = "localhost"
 DB_NAME = "rassam"
 DB_USERNAME = "root"
