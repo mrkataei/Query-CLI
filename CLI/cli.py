@@ -33,8 +33,61 @@ def runOSCommands(commands_arr):
             print(res)
         successToString()
     elif commands_arr[0] == "add":
-        add(1)
-        # query
+        try:
+            age = int(input('>Enter age plz:(24)'))
+        except ValueError:
+            age = 24
+        workclass = input('>Enter workclass plz:(Private)')
+        workclass = 'Private' if not workclass else workclass
+
+        fnlwgt = input('>Enter fnlwgt plz:(201490)')
+        fnlwgt = '201490' if not fnlwgt else fnlwgt
+
+        education = input('>Enter education plz:(Masters)')
+        education = 'Masters' if not education else education
+
+        try:
+            edu_num = int(input('>Enter education-num plz:(10)'))
+        except ValueError:
+            edu_num = 10
+
+        mar_status = input('>Enter mar_status plz:(Divorced)')
+        mar_status = 'Divorced' if not mar_status else mar_status
+
+        occupation = input('>Enter occupation plz:(Tech-support)')
+        occupation = 'Tech-support' if not occupation else occupation
+
+        relationship = input('>Enter relationship plz:(Husband)')
+        relationship = 'Husband' if not relationship else relationship
+
+        race = input('>Enter race plz:(White)')
+        race = 'White' if not race else race
+
+        sex = 'Male' if input('>Are you a man(y/n)?(default y)') == 'y' else 'Female'
+        try:
+            cap_gain = int(input('>Enter cap_gain plz:(0)'))
+        except ValueError:
+            cap_gain = 0
+        try:
+            cap_loss = int(input('>Enter cap_loss plz:(0)'))
+        except ValueError:
+            cap_loss = 0
+        try:
+            h_p_week = int(input('>Enter hours-per-week	plz:(0)'))
+        except ValueError:
+            h_p_week = 0
+
+        native_country = input('>Enter native-country plz:(Iran)')
+        native_country = 'Iran' if not native_country else native_country
+
+        native_trans = input('>Enter native-country-trans plz:(ایران)')
+        native_trans = 'ایران' if not native_trans else native_trans
+
+        salary = '>50k' if input('>is your greater than 50k (y/n):(default y)') == 'y' else '<=50k'
+
+        add(agel=age, workclass=workclass, fnlwgt=fnlwgt, education=education, edu_num=edu_num, mar_status=mar_status,
+            occupation=occupation, relationship=relationship, race=race, sex=sex, cap_gain=cap_gain, cap_loss=cap_loss,
+            h_p_week=h_p_week, native_country=native_country, native_country_tr=native_trans, salary=salary)
         successToString()
     elif commands_arr[0] == "insert":
         if os.path.exists(commands_arr[2]):
@@ -76,4 +129,3 @@ def welcome():
     else:
         print('that\'s ok!')
         return False
-

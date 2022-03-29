@@ -1,4 +1,4 @@
-from . import engine, MetaData, Integer, String, Column, Table, insert
+from . import engine, MetaData, Integer, String, Column, Table
 
 
 def create_adult_table():
@@ -36,17 +36,19 @@ def get_native_country(country: str):
                             f'WHERE ` native-country`= " {country}" GROUP BY ` sex`')
 
 
-def add_adult(agel: int, workclass: str, fnlwgt: str, education: str, edu_num: int, mar_status: str, occupation: str,
-              relationship: str, race: str, sex: str, cap_gain: int, cap_loss: int, h_p_week: int, native_country: str,
-              native_country_tr: str, salary: str):
-    try:
-        engine().execute(f'insert into adults(age, ` workclass`, ` fnlwgt`, ` education`, ` education-num`,'
-                         f' ` marital-status`, ` occupation`, ` relationship`, ` race`, ` sex`, ` capital-gain`,'
-                         f' ` capital-loss`, ` hours-per-week`, ` native-country`, `native-country-trans`,'
-                         f' ` salary`) '
-                         f'VALUES ({agel},{workclass}, {fnlwgt}, {education}, {edu_num}, {mar_status},'
-                         f' {occupation}, {relationship}, {race}, {sex}, {cap_gain}, {cap_loss}, {h_p_week},'
-                         f' {native_country}, {native_country_tr}, {salary})')
+def add_adult(agel: int = 0, workclass: str = None, fnlwgt: str = None, education: str = None, edu_num: int = 0,
+              mar_status: str = None, occupation: str = None,
+              relationship: str = None, race: str = None, sex: str = None, cap_gain: int = 0, cap_loss: int = 0,
+              h_p_week: int = 0, native_country: str = None,
+              native_country_tr: str = None, salary: str = None):
+    # try:
+    engine().execute(f'insert into adults(age, ` workclass`, ` fnlwgt`, ` education`, ` education-num`,'
+                     f' ` marital-status`, ` occupation`, ` relationship`, ` race`, ` sex`, ` capital-gain`,'
+                     f' ` capital-loss`, ` hours-per-week`, ` native-country`, `native-country-trans`,'
+                     f' ` salary`) '
+                     f'VALUES ({agel},"{workclass}", "{fnlwgt}", "{education}", {edu_num},"{mar_status}",'
+                     f' "{occupation}", "{relationship}", "{race}", "{sex}", {cap_gain}, {cap_loss}, {h_p_week},'
+                     f' "{native_country}", "{native_country_tr}", "{salary}")')
 
-    except Exception as e:
-        print(e)
+# except Exception as e:
+#     print(e)
