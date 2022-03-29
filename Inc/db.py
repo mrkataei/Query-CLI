@@ -1,8 +1,6 @@
 from . import create_engine
-# DB_HOST = config('DB_HOST')
-# DB_NAME = config('DB_NAME')
-# DB_USERNAME = config('DB_USERNAME')
-# DB_PASSWORD = config('DB_PASSWORD')
+
+
 DB_HOST = "localhost"
 DB_NAME = "rassam"
 DB_USERNAME = "root"
